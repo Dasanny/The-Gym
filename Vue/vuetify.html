@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-content>
+        <v-container>text + font + colors</v-container>
+        <div class="root1">
+          <p class="lime blue--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="pink lighten-4 green--text text--darken-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h1 class="display-4">BIG display</h1>
+          <h1 class="display-1">epic sizing</h1>
+          <p class="headline">this is a headline</p>
+          <p class="subheading font-weight-bold text-capitalize">this is a nice subheading</p>
+          <p class="caption">nice caption</p>
+        </div>
+
+        <v-container>buttons + icons</v-container>
+        <div class="root2">
+          <!-- using a class -->
+          <v-btn class="pink white--text">click here</v-btn>
+          <!-- using a prop, depress takes away drop shadow -->
+          <v-btn depressed color="pink">click AGAIN</v-btn>
+          <v-btn text color="pink">click HERE click HERE</v-btn>
+          <!-- material icons: https://material.io/resources/icons/?style=baseline -->
+          <v-btn depressed class="pink white--text">
+            <v-icon left>face</v-icon>
+            <span>email ME!!</span>
+          </v-btn>
+          <v-btn small depressed class="pink white--text">
+            <v-icon left>face</v-icon>
+            <span>email ME!!</span>
+          </v-btn>
+          <v-btn large depressed class="pink white--text">
+            <!-- notice ordering -->
+            <v-icon right large>face</v-icon>
+            <span>email ME!!</span>
+          </v-btn>
+          <v-btn large depressed class="pink white--text">
+            <!-- notice ordering -->
+            <span>email ME!!</span>
+            <v-icon right large>face</v-icon>
+          </v-btn>
+          <!-- dark prop makes text white -->
+          <v-btn fab small dark depressed color="purple">
+            <!-- notice ordering -->
+            <v-icon>star</v-icon>
+          </v-btn>
+        </div>
+
+        <v-container>breakpoints + visibility</v-container>
+        <div class="root3">
+          <!-- hide anything less than medium size screen -->
+          <v-btn class="hidden-md-and-down">click o'er here</v-btn>
+          <v-btn class="hidden-md-and-up">clickeuuuuuuu</v-btn>
+        </div>
+      </v-content>
+    </v-app>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+    })
+  </script>
+</body>
+</html>

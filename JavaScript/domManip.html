@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dom Manipulation</title>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector('body');
+
+      const p = document.createElement('p');
+      p.textContent = 'hey I\'m red';
+      p.style.color = 'red';
+      body.appendChild(p);
+
+      const blueH = document.createElement('h3');
+      body.appendChild(blueH);
+      blueH.textContent = 'I\'m a blue h3';
+      blueH.style.color = 'blue';
+
+      //in js, convert css kebab-case into js camelCase
+      const container = document.createElement('div');
+      body.appendChild(container);
+      container.style.border = 'solid black';
+      container.style.backgroundColor = 'pink';
+
+      const h1Div = document.createElement('h1');
+      h1Div.textContent = 'I am in a div';
+      container.appendChild(h1Div);
+
+      const pTOO = document.createElement('p');
+      pTOO.textContent = 'me too!!!';
+      container.appendChild(pTOO);
+    </script>
+
+  </body>
+</html>

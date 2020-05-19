@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      const playerSelection = 'rock';
+      const computerSelection = computerPlay();
+      console.log('computer: ' + computerSelection);
+
+      function computerPlay(){
+        num = Math.floor(Math.random() * (3));
+        if(num == 0){
+          return 'rock';
+        } else if(num == 1){
+          return 'paper';
+        } else {
+          return 'scissors';
+        }
+      }
+
+      function playRound(playerSelection, computerSelection){
+        if(playerSelection == computerSelection){
+          return 'tie';
+        } else if (computerSelection == 'paper'){
+          return 'Paper beats rock you lose HAHA';
+        } else {
+          return 'you win bb rock beats scissors';
+        }
+      }
+
+      console.log(playRound(playerSelection, computerSelection));
+
+    </script>
+  </body>
+</html>

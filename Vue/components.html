@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"/>
+  <title>Vue Components</title>
+</head>
+<body>
+
+  <div id="root">
+
+    <task>big task</task>
+
+    <meme>afk</meme>
+
+    <task-list></task-list>
+
+
+  </div>
+  <br>
+  <div id="root2" class="container">
+    <message title="hello" body="the quick brown fox"></message>
+  </div>
+  <br>
+  <div id="root3">
+    <modal v-show="showModal" @close="showModal = false">
+      <p>
+        COOL Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus ipsam dolor nam, quisquam libero velit rerum excepturi! Eos provident delectus maxime id, ea sed recusandae veniam fugiat totam, nostrum quis!
+      </p>
+    </modal>
+    <button @click="showModal = true">show cool modal</button>
+  </div>
+  <br>
+  <div id="root4" class="container">
+    <tabs>
+      <tab name="about" :selected="true">
+        <h1>content for about</h1>
+      </tab>
+
+      <tab name="ducks">
+        <h1>about big ducks</h1>
+      </tab>
+
+      <tab name="trucks">
+        <h1>oh yeah BIG trucks</h1>
+      </tab>
+    </tabs>
+  </div>
+  <br>
+  <div id="root5">
+    <camera name="phone camera" :rating="5">
+    </camera>
+  </div>
+
+  <script src="components.js"></script>
+</body>
+</html>

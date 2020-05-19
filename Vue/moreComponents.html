@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"/>
+  <title>More Vue Components</title>
+</head>
+<body>
+
+  <!-- Component Communication 1: Custom Events -->
+  <!-- Communicating between parent and child -->
+  <div id="root">
+    <!-- When applied, trigger onCouponApply -->
+    <coupon-a @applied="onCouponApply"></coupon-a>
+    <h1 v-if="couponApplied">you used up your COUUUUUUUUUpon</h1>
+  </div>
+
+  <!-- Component Communication 2: Event Dispatcher -->
+  <!-- Communicating between sibling components -->
+  <!--
+  <div id="root2">
+  <coupon-b @applied="onCouponApply"></coupon-b>
+  <h1 v-if="couponApplied">bbbbbbyou used up your COUUUUUUUUUpon</h1>
+</div>
+-->
+
+  <!-- Named Slots -->
+  <!-- <div id="root3">
+    <modal>
+      <template slot="header">BIG BIG header</template>
+
+
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab perspiciatis minima autem consectetur quod, harum eos, quam earum incidunt nobis quasi esse, fugiat ipsa dolorem. Quibusdam totam animi nesciunt placeat!
+
+      <div slot="footer">
+        <a class="button is-primary">SAVE IT</a>
+        <a class="button">nop</a>
+      </div>
+    </modal>
+
+  </div>-->
+
+  <!-- Single Use Components (inline templates) -->
+  <div id="root4">
+    <progress-view inline-template>
+      <h1>your progress is {{ completionRate }}%</h1>
+    </progress-view>
+  </div>
+
+  <script src="moreComponents.js"></script>
+</body>
+</html>

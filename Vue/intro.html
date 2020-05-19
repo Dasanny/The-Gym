@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Vue Intro</title>
+  <style media="screen">
+    .is-loading {
+      background-color: pink;
+    }
+
+    .enable {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Data Binding -->
+  <div id="root">
+    <input type="text" id="input" v-model="message">
+    <p>Input: {{ message }}</p>
+  </div>
+
+    <!-- Lists -->
+  <div id="root2">
+    <ul>
+      <li v-for="name in names" v-text="name"></li>
+    </ul>
+
+    <input id="input2" type="text" v-model="newName">
+    <button @click="addName">Add Name</button>
+
+    <!-- <button v-on:click="addName">Add Name</button> -->
+  </div>
+
+  <div id="root3">
+    <!-- ':'> is bind -->
+    <button :title="text">Hover over</button>
+    <!-- <button v-bind:title="title">Hover over</button> -->
+    <br><br>
+    <button :class="{ 'is-loading': isLoading }" @click="toggleClass">click here</button>
+    <br><br>
+    <button :disabled="{ enable }">click again...</button>
+    <button @click="able">click fix</button>
+  </div>
+
+  <div id="root4">
+    <h1>hello world</h1>
+    <h1>{{ reversedMessage }}</h1>
+
+    <h2>big tasks:</h2>
+    <ul>
+      <li v-for="task in tasks" v-text="task.desc"></li>
+    </ul>
+
+    <h2>not done yet</h2>
+    <ul>
+      <li v-for="task in incTasks" v-text="task.desc"></li>
+    </ul>
+
+  </div>
+
+  <script>
+    // Data Binding
+    var a = new Vue({
+      el: '#root',  // select element #root
+
+      data: {
+        message: 'Hello World'
+      }
+    });
+
+    // Lists
+    var b = new Vue ({
+      el: '#root2',
+      data: {
+        newName: '',
+        names: ['ab', 'bc', 'cd', 'de']
+      },
+
+      methods: {
+        addName() {
+          this.names.push(this.newName);
+          this.newName = '';
+        }
+      }
+    });
+
+    //  Attribute/Class name binding
+    var c = new Vue({
+      el: '#root3',
+      data: {
+        text: 'js TITLE text',
+        isLoading: false,
+        enable: false
+      },
+
+      methods: {
+        toggleClass() {
+          this.isLoading = !this.isLoading;
+          console.log(this.isLoading);
+        },
+
+        able() {
+          this.enable = !this.enable;
+          console.log(this.enable);
+        }
+      }
+    });
+
+    var d = new Vue({
+      el: '#root4',
+
+      data: {
+        message: 'hello world',
+
+        tasks: [
+          { desc: 'wake up', complete: true },
+          { desc: 'breakfast', complete: true },
+          { desc: 'lunch', complete: true },
+          { desc: 'dinner', complete: true },
+          { desc: 'sleep', complete: false },
+        ]
+      },
+
+      computed : {
+        reversedMessage() {
+          return this.message.split('').reverse().join('');
+        },
+
+        incTasks (){
+          return this.tasks.filter(task => !task.complete);
+        }
+
+      }
+    });
+
+  </script>
+
+
+</body>
+</html>
