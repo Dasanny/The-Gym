@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <title>Bootstrap</title>
+  <style>
+    body {
+      margin: 30px;
+    }
+
+    .container-a {
+      border: 5px solid pink;
+    }
+
+    .row-a {
+      border: 3px solid red;
+      height: 300px;
+    }
+
+    .col-a {
+      border: 3px dotted blue;
+    }
+
+  </style>
+</head>
+<!-- https://www.youtube.com/watch?v=qmPmwdshCMw -->
+<body>
+  <!-- Bootstrap grid uses flexbox behind the scenes -->
+  <!-- GRID CAN add up to 12, can also use less than 12 -->
+  <!-- less than 12, does not take full width -->
+  <div class="container container-a">
+
+    <div class="row row-a">
+      <div class="col-md-4 col-sm-6 col-a">
+        row 1 col 1
+      </div>
+      <div class="col-md-8 col-sm-6 col-a">
+        row 1 col 2
+      </div>
+    </div>
+
+    <!-- justify-content-[end, around, between] -->
+    <!-- align-items-[start, center, stretch] -->
+    <div class="row justify-content-between align-items-start row-a">
+      <!-- `order` orders elements -->
+      <div class="col-4 col-a order-12">
+        row 2 col 1
+      </div>
+      <div class="col-4 col-a order-2">
+        row 2 col 2
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</body>
+</html>

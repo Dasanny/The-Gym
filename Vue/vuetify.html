@@ -61,6 +61,32 @@
           <v-btn class="hidden-md-and-down">click o'er here</v-btn>
           <v-btn class="hidden-md-and-up">clickeuuuuuuu</v-btn>
         </div>
+
+        <!-- Vuetify Grid -->
+        <v-row>
+          <v-col cols="12" md="6" lg="3">
+            <v-btn outline block class="primary">1</v-btn>
+          </v-col>
+          <v-col cols="4" md="2">
+            <v-btn outline block class="primary">2</v-btn>
+          </v-col>
+          <v-col cols="4" md="2">
+            <v-btn outline block class="primary">3</v-btn>
+          </v-col>
+          <v-col cols="4" md="2">
+            <v-btn outline block class="primary">4</v-btn>
+          </v-col>
+        </v-row>
+
+        <v-row justify="space-between">
+          <v-col cols="4" md="3">
+            <v-btn outline block class="success">1</v-btn>
+          </v-col>
+          <v-col cols="4" md="3">
+            <v-btn outline block class="success">2</v-btn>
+          </v-col>
+        </v-row>
+
       </v-content>
     </v-app>
   </div>
@@ -70,10 +96,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   <script>
-    new Vue({
-      el: '#app',
-      vuetify: new Vuetify(),
-    })
+  new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+  })
   </script>
 </body>
 </html>
