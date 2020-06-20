@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- chart js https://www.chartjs.org/docs/latest/-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <!-- Materialize CSS https://materializecss.com/ -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- jsPDF -->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+
+    <title>Charts</title>
+</head>
+
+<body>
+
+    <nav class="teal">
+        <div class="nav-wrapper">
+            <h4>CodeGem</h4>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s8 card">
+                <div class="row reset">
+                    <a class="waves-effect waves-light btn-small btn-flat" id="reset-btn">Reset</a>
+                </div>
+                <div class="row header">
+                    <div class="col s9">
+                        <h3>Report Creator</h3>
+                    </div>
+                </div>
+                <hr>
+                <!-- select filter -->
+                <div class="row">
+                    <div class="col s3">
+                        <label>Data Range</label>
+                        <select class="browser-default filter">
+                            <option value="1">All Time</option>
+                            <option value="2">Last Month</option>
+                            <option value="3">Last 7 Days</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- graph 1 -->
+                <div class="row graph1">
+                    <div class="col s10">
+                        <form id="area-form">
+                            <div class="input-field col s6">
+                                <label for="area-name">Area Graph</label>
+                                <input placeholder="Change Name" id="area-name" type="text">
+                            </div>
+                        </form>
+                        
+                        <div class="col s3 delete">
+                            <a class="waves-effect waves-light btn-small delete-btn" id="delete-area"><i class="material-icons">delete</i></a>
+                        </div>
+                        <canvas id="area"></canvas>
+                    </div>
+
+                </div>
+
+                <!-- graph 2 -->
+                <div class="row graph2">
+                    <div class="col s10">
+                        <form id="bar-form">
+                            <div class="input-field col s6">
+                                <label for="area-name">Bar Graph</label>
+                                <input placeholder="Change Name" id="bar-name" type="text">
+                            </div>
+                        </form>
+
+                        <div class="col s3 delete">
+                            <a class="waves-effect waves-light btn-small delete-btn" id="delete-bar"><i class="material-icons">delete</i></a>
+                        </div>
+                        <canvas id="bar"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- export card -->
+            <div class="col s3 offset-s1">
+                <div class="card">
+                    <div class="card-title">
+                        <h4>Export</h4>
+                    </div>
+                    <div class="card-action">
+                        <label>Export Format</label>
+                        <select class="browser-default export-format">
+                            <option value="pdf">PDF</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                        <a class="waves-effect waves-light btn" id="export-btn">Export</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
+
+<style>
+    h4 {
+        margin: 0 5rem;
+        padding-top: 1rem;
+    }
+
+    canvas {
+        margin-bottom: 4rem;
+    }
+
+    .delete {
+        margin-top: 2rem;
+    }
+
+    h3 {
+        padding-top: 0;
+        margin: 0;
+    }
+
+    .reset {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+    }
+
+    .card {
+        margin-top: 3rem;
+    }
+
+    .card-title {
+        margin-bottom: 1rem;
+    }
+
+    #export-btn {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    hr {
+        color: #d3d3d3;
+        border: 2px solid #d3d3d3;
+        margin-top: 0;
+    }
+
+</style>
