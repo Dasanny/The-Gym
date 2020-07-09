@@ -16,6 +16,11 @@ img {
   max-width: 100%;
 }
 
+.wrapper {
+  display: grid;
+  grid-gap: 1rem;
+}
+
 .top {
   display: grid;
   grid-template-areas: "hero hero cta1" "hero hero cta2";
@@ -34,9 +39,13 @@ img {
   align-items: start;
   justify-content: center;
 }
+.hero p {
+  font-weight: bold;
+}
 
 .hero > * {
   background: #ffc600;
+  padding: 0.5rem;
 }
 
 .cta {
@@ -66,7 +75,7 @@ img {
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
 }
 .menu a {
   background: #ffc600;
@@ -87,7 +96,7 @@ img {
 .features {
   display: grid;
   column-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
 }
 
 .feature {
@@ -107,10 +116,86 @@ img {
 .about {
   background: white;
   padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+  column-gap: 2rem;
+  align-items: center;
 }
 
 .gallery {
   display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+}
+.gallery h2 {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+.gallery h2:before, .gallery h2:after {
+  display: block;
+  content: "";
+  height: 0.5rem;
+  background: linear-gradient(to left, #ffc600, transparent);
+}
+.gallery h2:after {
+  background: linear-gradient(to right, #ffc600, transparent);
+}
+.gallery img {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .top {
+    grid-template-areas: "hero hero" "cta1 cta2";
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .top {
+    grid-template-areas: "hero" "cta1" "cta2";
+  }
+}
+@media (max-width: 1000px) {
+  .menu {
+    order: -1;
+    perspective: 800px;
+  }
+  .menu ul {
+    overflow: hidden;
+    max-height: 0;
+    transform: rotateX(90deg);
+    transition: all 0.5s;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+  }
+  .menu a {
+    padding: 0.5rem;
+  }
+
+  [aria-controls=menu-list] {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  [aria-expanded=true] ~ ul {
+    display: grid;
+    max-height: 20vh;
+    transform: rotate(0);
+  }
+
+  [aria-expanded=true] .open {
+    display: inline-block;
+  }
+
+  [aria-expanded=false] .close {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=responsive-styles.css.map */
