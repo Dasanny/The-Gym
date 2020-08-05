@@ -50,33 +50,67 @@ input, textarea {
     font-size: 1em;
 }
 
+.welcome-img img{
+    max-width: 50%;
+}
+
+// grid
+
+.projects{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    a {
+        text-align: center;
+        background: grey;
+        padding: 20px;
+    }
+    a:nth-child(1) {
+        grid-column:  2/6;
+        grid-row: 1;
+    }
+    a:nth-child(2) {
+        grid-column:  8/12;
+        grid-row: 1;
+    }
+    a:nth-child(3) {
+        grid-column:  5/9;
+        grid-row: 2;
+    } 
+}
+
+
 // fonts
 h1, h2, h3, h4{
-  color: #DDDBFF;
-  font-weight: normal;
-  line-height: 1.4em;
+    color: #DDDBFF;
+    font-weight: normal;
+    line-height: 1.4em;
 }
 
 p, a, li{
-  color: #9893D8;
-  line-height: 1.4em;
-  font-size: 1em;
+    color: #9893D8;
+    line-height: 1.4em;
+    font-size: 1em;
 }
 
-h1, h3{
-  font-size: 1.2em;
+h1, h3 {
+    font-size: 1.2em;
 }
 
 h2 {
-  font-size: 1.6em;
+    font-size: 1.6em;
 }
 
 h4 {
-  font-size: 1.1em;
+    font-size: 1.1em;
 }
 
 .leading{
-  font-size: 1.1em;
+    font-size: 1.1em;
 }
 
 // mobile styles
@@ -96,7 +130,7 @@ h4 {
 
 // desktop styles
 @media screen and (min-width: 1200px){
-    body{
+    body {
         font-size: 2rem;
     }
 }
