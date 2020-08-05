@@ -1,3 +1,7 @@
+html {
+  font-size: 62.5%;
+}
+
 body, p, a, ul, li {
   margin: 0;
   padding: 0;
@@ -11,6 +15,7 @@ li {
 body {
   background: #0A0B5b;
   overflow-x: hidden;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .button {
@@ -22,6 +27,7 @@ body {
   text-transform: uppercase;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
   display: inline-block;
+  font-size: 1em;
 }
 
 .button:hover {
@@ -35,6 +41,46 @@ input, textarea {
   border-radius: 20px;
   border: 2px solid #9893D8;
   color: #f2f2f2;
+  font-size: 1em;
+}
+
+h1, h2, h3, h4 {
+  color: #DDDBFF;
+  font-weight: normal;
+  line-height: 1.4em;
+}
+
+p, a, li {
+  color: #9893D8;
+  line-height: 1.4em;
+  font-size: 1em;
+}
+
+h1, h3 {
+  font-size: 1.2em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+.leading {
+  font-size: 1.1em;
+}
+
+@media screen and (min-width: 960px) {
+  body {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
