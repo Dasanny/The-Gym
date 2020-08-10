@@ -6,29 +6,38 @@ const app = express();
 // listen for requests on port 3000
 app.listen(3000);
 
+// register view engine
+app.set('view engine', 'ejs');
+
+// express looks for views inside the ejs-views folder
+app.set('views', 'ejs-views');
+
 // the below app.get functions are similar to a large switch statement
 
 // home page
 app.get('/', (req, res) => {
-    // automatically sends header + status code
-    // res.send('<p>html response</p>');
-    // specify that the ./ root directory is the current directory (__dirname)
-    res.sendFile('./views/index.html', { root: __dirname });
+    // pass in dynamic data as object
+    const blogs = [
+        { title: 'big big yoshi', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+        { title: 'korosensei peeps', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+        { title: 'he also explodes', snippet: 'Lorem ipsum dolor sit amet consectetur' },
+    ];
+    res.render('index', { title: 'title', blogs });
 })
 
 // about page
 app.get('/about', (req, res) => {
-    res.sendFile('./views/about.html', { root: __dirname });
+    res.render('about', { title: 'about' });
 })
 
-// redirects
-app.get('/about-us', (req, res) => {
-    res.redirect('/about');
+// create blog page
+app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'create new blog' });
 })
 
 // default case (always runs if there is no match above)
 
 // 404 page
 app.use((req, res) => {
-    res.status(404).sendFile('./views/404.html', { root: __dirname });
+    res.status(404).render('404', { title: '404' });
 })
