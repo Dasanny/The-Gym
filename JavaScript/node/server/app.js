@@ -6,6 +6,16 @@ const app = express();
 // listen for requests on port 3000
 app.listen(3000);
 
+// log request details to console
+
+app.use((req, res, next) => {
+    console.log('new request');
+    console.log('host: ', req.hostname);
+    console.log('path: ', req.path);
+    console.log('method: ', req.method);
+    next();
+})
+
 // register view engine
 app.set('view engine', 'ejs');
 
