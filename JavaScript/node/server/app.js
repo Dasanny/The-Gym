@@ -23,8 +23,16 @@ app.set('view engine', 'ejs');
 // static files are stored in the 'public' folder
 app.use(express.static('public'));
 
+// access req.body
+app.use(express.urlencoded({ extended: true }))
+
 // log request details to console with morgan
 app.use(morgan('dev'));
+
+app.use((req, res, next) => {
+    res.locals.path = req.path;
+    next();
+});
 
 // express looks for views inside the ejs-views folder
 app.set('views', 'ejs-views');
@@ -73,6 +81,11 @@ app.get('/about', (req, res) => {
     res.render('about', { title: 'about' });
 })
 
+// create blog page
+app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'create new blog' });
+})
+
 app.get('/blogs', (req, res) => {
     // return all documents, sorted by newest to oldest
     Blog.find().sort({ createdAt: -1 })
@@ -84,10 +97,43 @@ app.get('/blogs', (req, res) => {
         });
 });
 
-// create blog page
-app.get('/blogs/create', (req, res) => {
-    res.render('create', { title: 'create new blog' });
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body);
+
+    blog.save()
+        .then(result => {
+            res.redirect('/blogs');
+        })
+        .catch(err => {
+            console.log(err);
+        })
 })
+
+app.get('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+    Blog.findById(id)
+        .then(result => {
+            res.render('details', { blog: result, title: 'Blog Details' });
+        })
+        .catch(err => {
+            console.log(err);
+        })
+})
+
+app.delete('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+
+    Blog.findByIdAndDelete(id)
+        .then(result => {
+            // send json back
+            res.json({ redirect: '/blogs' })
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+})
+
 
 // default case (always runs if there is no match above)
 
