@@ -1,5 +1,3 @@
-import { witch } from "./witch";
-import { swordsman } from "./swordsman";
+import getClasses from "./getClasses";
 console.log("ran from index.js");
-console.log(witch);
-console.log(swordsman);
+getClasses();
