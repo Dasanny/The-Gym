@@ -1,0 +1,4 @@
+{
+  // give us some standards to transpile to
+  "presets": ["@babel/preset-env"]
+}
